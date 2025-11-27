@@ -33,8 +33,9 @@ public class Scraper {
     try {
       Document doc = Jsoup.connect(speakerLink).get();
       Elements speaker = doc.select("li");
+      Element speakerNameHTML = doc.select("h1").first();
 
-      System.out.println("Durchsuchen von " + speaker.size() + " Sprechrollen...");
+      System.out.println("Durchsuchen von " + speaker.size() + " Sprechrollen von " + speakerNameHTML.text() + "...");
 
       for (Element li : speaker) {
         String roleHTML = li.html();
