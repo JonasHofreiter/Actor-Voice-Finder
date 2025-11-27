@@ -1,3 +1,5 @@
+CMD öffnen, in den Pfad gehen mit "cd", dann Kompilieren mit (jdk könnte eine andere sein):
 "C:\Program Files\Java\jdk-21.0.1\bin\javac.exe" -cp "lib/*" -d classes src/AN/Webscraper/Scraper.java
 
+Dann Ausführen mit (jdk könnte eine andere sein):
 "C:\Program Files\Java\jdk-21.0.1\bin\java.exe" -cp "classes;lib/*" AN.Webscraper.Scraper
