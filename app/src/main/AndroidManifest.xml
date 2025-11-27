@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VoiceActorFinder">
         <activity
+            android:name=".activity_favoriten_bearbeiten"
+            android:exported="false" />
+        <activity
+            android:name=".finde_Synchronsprecher"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
