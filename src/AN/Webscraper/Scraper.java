@@ -1,4 +1,4 @@
-package JH.WebscraperTest;
+package AN.Webscraper;
 
 import java.util.Scanner;
 
