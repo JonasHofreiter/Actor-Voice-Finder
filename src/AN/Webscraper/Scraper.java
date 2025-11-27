@@ -1,28 +1,51 @@
 package AN.Webscraper;
 
 import java.util.Scanner;
+import java.nio.file.*;
+import java.util.Arrays;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.*;
 import java.io.*;
 import org.jsoup.select.*;
 
-public class Scraper{
-	public static void main (String[] args){
-//		films = ["https://www.synchronkartei.de/film/1467, https://www.synchronkartei.de/film/1469, https://www.synchronkartei.de/film/1468, https://www.synchronkartei.de/film/1421"]
-		try {
-			//Document doc = Jsoup.parse("https://www.synchronkartei.de/film/29457");
-			Document doc = Jsoup.connect("https://www.synchronkartei.de/person/YsnQnNOBZ/sprecher").get();
-//			Document doc = Jsoup.parse("<a>???<a><a href='lalal'>what?<a>");
-			Elements spkr = doc.select("li");
-			System.out.println(spkr.size());
-			for (Element li : spkr){
-				String inf = li.text();
-				System.out.println(inf);
-			}
-		} catch (IOException e){
-			e.printStackTrace();
-		}
-	}
-}
+import com.google.gson.Gson;
 
+public class Scraper {
+  public static void main(String[] args) {
+    Gson gson = new Gson();
+    Scanner sc = new Scanner(System.in);
+
+    String[] films = null;
+
+    try {
+      String filmsJson = Files.readString(Paths.get("daten.json"));
+      films = gson.fromJson(filmsJson, String[].class);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    System.out.println("Deine bekannten Filme: " + Arrays.toString(films));
+
+    System.out.println("Link des Sprechers eingeben:");
+    String speakerLink = sc.nextLine();
+
+    try {
+      Document doc = Jsoup.connect(speakerLink).get();
+      Elements speaker = doc.select("li");
+
+      System.out.println("Durchsuchen von " + speaker.size() + " Sprechrollen...");
+
+      for (Element li : speaker) {
+        String roleHTML = li.html();
+        for (String film : films)
+          if (roleHTML.contains(film + "</a>")) {
+            Element role = li.getElementsByTag("em").first();
+            System.out.println("Bekannte Rolle: " + role.text() + " aus " + film);
+          }
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+}

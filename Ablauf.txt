@@ -1,0 +1,8 @@
+Wenn wir noch mehr Zeit haben:
+1.  Film oder Serie suchen
+2.  Charakter suchen
+Das eigentlich Wichtige:
+1.  Liste mit bekannten Filmen und Serien anlegen (Wie genau???) – Robert, Hendrik, Jonathan
+2.  Name des Synchronsprechers in ein Suchfeld eingeben – Robert, Hendrik, Jonathan
+3.  Programm sucht dem Benutzer bekannte Filme und Serien nach diesem Namen durch – Jonas, Alex
+4.  Ausgabe: Rollen dieses Synchronsprechers in den dem Benutzer bekannten Filmen und Serien – Jonas, Alex; am Ende Implementierung eines Ausgabefelds durch Robert, Hendrik, Jonathan
