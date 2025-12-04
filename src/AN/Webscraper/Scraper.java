@@ -4,10 +4,7 @@ import java.util.Scanner;
 import java.nio.file.*;
 import java.util.Arrays;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.*;
 import java.io.*;
-import org.jsoup.select.*;
 
 import com.google.gson.Gson;
 

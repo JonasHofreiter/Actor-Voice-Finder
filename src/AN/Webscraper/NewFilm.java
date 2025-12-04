@@ -10,7 +10,7 @@ import java.util.Scanner;
 import com.google.gson.Gson;
 
 public class NewFilm {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
     Gson gson = new Gson();
     Scanner scAddFilm = new Scanner(System.in);
 
@@ -26,11 +26,19 @@ public class NewFilm {
     System.out.println("Deine bekannten Filme: " + Arrays.toString(films));
 
     System.out.println("Welchen Film möchtest du hinzufügen? (ganzen Namen von synchronkartei.de angeben)");
-      String newFilm = scAddFilm.nextLine();
-      String[] newFilms = films + newFilm;
+    String newFilm = scAddFilm.nextLine();
+    String[] newFilms = new String[films.length + 1];
 
-      try (FileWriter writer = new FileWriter("daten.json")) {
-      gson.toJson(newFilms, writer);
+    for (int i = 0; i < films.length; i++) {
+      newFilms[i] = films[i];
     }
-}
+
+    newFilms[films.length] = newFilm;
+
+    try (FileWriter writer = new FileWriter("daten.json")) {
+      gson.toJson(newFilms, writer);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 }
