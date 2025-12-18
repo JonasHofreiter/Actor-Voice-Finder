@@ -9,7 +9,7 @@
     tools:context=".finde_Synchronsprecher">
 
     <SearchView
-        android:id="@+id/searchView"
+        android:id="@+id/searchVA"
         android:layout_width="317dp"
         android:layout_height="69dp"
         android:background="#B68854"
@@ -30,15 +30,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.708" />
+        app:layout_constraintTop_toBottomOf="@+id/searchVA"
+        app:layout_constraintVertical_bias="0.708"
+
+        />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="54dp"
+        android:id="@+id/backButton"
+        android:layout_width="55dp"
         android:layout_height="69dp"
-        android:background="#B68854"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:background="#B58754"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
