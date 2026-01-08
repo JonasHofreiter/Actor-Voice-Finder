@@ -21,7 +21,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752" />
+        app:layout_constraintVertical_bias="0.715" />
+
+    <Button
+        android:id="@+id/find_VA_Button"
+        android:layout_width="389dp"
+        android:layout_height="122dp"
+        android:backgroundTint="#B68854"
+        android:text="Finde deinen Synchronsprecher"
+        android:textSize="34sp"
+        app:cornerRadius="40sp"
+        app:iconTint="#5F1818"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.494" />
+
+    <Button
+        android:id="@+id/close_Programm"
+        android:layout_width="389dp"
+        android:layout_height="122dp"
+        android:backgroundTint="#B68854"
+        android:text="Schließen"
+        android:textSize="34sp"
+        app:cornerRadius="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -56,21 +85,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.176" />
-
-    <Button
-        android:id="@+id/find_VA_Button"
-        android:layout_width="389dp"
-        android:layout_height="122dp"
-        android:backgroundTint="#B68854"
-        android:text="Finde deinen Synchronsprecher"
-        android:textSize="34sp"
-        app:cornerRadius="40sp"
-        app:iconTint="#5F1818"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
