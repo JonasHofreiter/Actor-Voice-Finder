@@ -39,11 +39,11 @@
         app:layout_constraintVertical_bias="0.494" />
 
     <Button
-        android:id="@+id/close_Programm"
+        android:id="@+id/Credits"
         android:layout_width="389dp"
         android:layout_height="122dp"
         android:backgroundTint="#B68854"
-        android:text="Schließen"
+        android:text="Credits"
         android:textSize="34sp"
         app:cornerRadius="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,7 +84,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.166" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
