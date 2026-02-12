@@ -4,7 +4,10 @@ import java.util.Scanner;
 import java.nio.file.*;
 import java.util.Arrays;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.*;
 import java.io.*;
+import org.jsoup.select.*;
 
 import com.google.gson.Gson;
 
@@ -13,16 +16,25 @@ public class Scraper {
     Gson gson = new Gson();
     Scanner sc = new Scanner(System.in);
 
-    String[] films = null;
+    String[] knownFilms = null;
+    String[] allFilms = null;
 
     try {
-      String filmsJson = Files.readString(Paths.get("daten.json"));
-      films = gson.fromJson(filmsJson, String[].class);
+      String knownFilmsJson = Files.readString(Paths.get("daten.json"));
+      knownFilms = gson.fromJson(knownFilmsJson, String[].class);
     } catch (IOException e) {
       e.printStackTrace();
     }
 
-    System.out.println("Deine bekannten Filme: " + Arrays.toString(films));
+    // try {
+    // String allFilmsJson =
+    // Files.readString(Paths.get("Synchronkartei/filme.json"));
+    // allFilms = gson.fromJson(allFilmsJson, String[].class);
+    // } catch (IOException e) {
+    // e.printStackTrace();
+    // }
+
+    System.out.println("Deine bekannten Filme: " + Arrays.toString(knownFilms));
 
     System.out.println("Link des Sprechers eingeben:");
     String speakerLink = sc.nextLine();
@@ -36,7 +48,7 @@ public class Scraper {
 
       for (Element li : speaker) {
         String roleHTML = li.html();
-        for (String film : films)
+        for (String film : knownFilms)
           if (roleHTML.contains(film + "</a>")) {
             Element role = li.getElementsByTag("em").first();
             System.out.println("Bekannte Rolle: " + role.text() + " aus " + film);
