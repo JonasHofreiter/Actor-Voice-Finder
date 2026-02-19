@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import org.json.JSONObject;
 
 public class activity_favoriten_bearbeiten extends AppCompatActivity {
-
+    InputStream is = getResources().openRawResource(R.raw.daten);
     // Declaring TextView from the Layout
     TextView textview;
 
@@ -14,6 +17,10 @@ public class activity_favoriten_bearbeiten extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favoriten_bearbeiten);
+        String meinJsonText = ladeJsonAusRaw();
+        if (meinJsonText != null) {
+            verarbeiteJson(meinJsonText);
+        }
 
         // initializing the TextView
         textview = findViewById(R.id.text);
@@ -80,5 +87,29 @@ public class activity_favoriten_bearbeiten extends AppCompatActivity {
         // Moves the cursor or scrolls to the
         // top or bottom of the document
         textview.setMovementMethod(new ScrollingMovementMethod());
+    }
+    private String ladeJsonAusRaw() {
+        try {
+            // "daten" muss der Name deiner Datei in res/raw sein (ohne .json)
+            InputStream is = getResources().openRawResource(R.raw.daten);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            return new String(buffer, StandardCharsets.UTF_8);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // Falls etwas schiefgeht
+        }
+    }
+    private void verarbeiteJson(String jsonString) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            // Beispiel: Wenn dein JSON { "vorname": "Max" } hat:
+            String name = jsonObject.getString("vorname");
+            System.out.println("Gefundener Name: " + name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
