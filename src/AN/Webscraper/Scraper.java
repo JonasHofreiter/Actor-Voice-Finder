@@ -17,7 +17,7 @@ public class Scraper {
     Scanner sc = new Scanner(System.in);
 
     String[] knownFilms = null;
-    String[] allFilms = null;
+    Film[] allFilms = null;
 
     try {
       String knownFilmsJson = Files.readString(Paths.get("daten.json"));
@@ -26,15 +26,19 @@ public class Scraper {
       e.printStackTrace();
     }
 
-    // try {
-    // String allFilmsJson =
-    // Files.readString(Paths.get("Synchronkartei/filme.json"));
-    // allFilms = gson.fromJson(allFilmsJson, String[].class);
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // }
-
+    try {
+      String allFilmsJson = Files.readString(Paths.get("Synchronkartei/filme.json"));
+      allFilms = gson.fromJson(allFilmsJson, Film[].class);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     System.out.println("Deine bekannten Filme: " + Arrays.toString(knownFilms));
+
+    System.out.println("Welchen Film / Welche Serie schaust du gerade?");
+    String currentWatch = sc.nextLine();
+
+    System.out.println("Welcher Charakter kommt dir bekannt vor?");
+    String currentWatchCharacter = sc.nextLine();
 
     System.out.println("Link des Sprechers eingeben:");
     String speakerLink = sc.nextLine();
